@@ -1,6 +1,5 @@
     let dealer_upCard = 0;
     let hand = [0,0];
-    let handImg = [];
     let handValue = 0;
     let handType = "";
     let player_action = "";
