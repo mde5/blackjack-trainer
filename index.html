@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<title>BlackJack Trainer</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="trainer.js"></script>
+<link rel="stylesheet" href="styles.css"> 
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">   
+</head>
+<body>
+    <h2 id="title">Blackjack Basic Strategy Trainer</h2>
+    <div id="main">
+        <p> Dealer's Upcard: </p>
+        <p id="d_cards"> <img src='images/none.png'> </p>
+        <p> Your Hand: </p>
+        <p id="p_cards"> <img src='images/none.png'> <img src='images/none.png'>  </p>
+    <div id="buttons">
+        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('h')">Hit</button> 
+        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('s')">Stand</button> 
+        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('d')">Double</button>
+        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('p')">Split</button> 
+    </div>
+</br>
+        <button class="btn btn--md btn--red" id="deal" onclick="dealCards()">Play</button>
+        <p id="result"> </p>
+        
+    </div>
+
+        <ul id="rules"> 
+            <li>4-8 Decks</li>
+            <li>Dealer Stands on Soft 17</li>
+            <li>Double after split allowed </li>
+            <li>No Surrender</li>
+        </ul>
+<p id="info"> Press 'play' to deal yourself a hand, then choose the best strategy based on the dealers upcard. Click 'deal' to play again. </p>
+</body>
+</html>
