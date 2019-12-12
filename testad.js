@@ -1,1 +1,4 @@
-document.write('<div id="testadblock" style="display:none;">an advertisement</div>');
+var e=document.createElement('div');
+e.id='testadblock';
+e.style.display='none';
+document.body.appendChild(e);
