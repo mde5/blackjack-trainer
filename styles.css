@@ -1,82 +1,119 @@
 html {
-    background: whitesmoke;
+  background: rgba(245,245,245,1);
 }
 body {
-    font-family: sans-serif;
-    font-weight: bold;
-    
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
 }
 
 #title {
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: 400;
 }
 
 #main {
-    background: #009266;
-    text-align: center;
-    margin: auto;
-    margin-top: 2.5em;
-    width: 30%;
-    border: 4px solid silver;
-    border-radius: 9px;
-    padding: 1em 3em 3em 3em;
-    height: 31.25em;
-    width: 19em;
-    font-weight: 500;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: whitesmoke;
+  text-align: center;
+  margin: auto;
+  margin-top: 2.5em;
+  width: 30%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #000;
+  border-image-slice: 4;
+  border-image-width: 2;
+  border-image-source: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12'><path d='M2 2h2v2H2zM4 0h2v2H4zM10 4h2v2h-2zM0 4h2v2H0zM6 0h2v2H6zM8 2h2v2H8zM8 8h2v2H8zM6 10h2v2H6zM0 6h2v2H0zM10 6h2v2h-2zM4 10h2v2H4zM2 8h2v2H2z' fill='%23000' /></svg>");
+  padding: 1em 3em 3em 3em;
+  height: 33.25em;
+  width: 22em;
+  font-weight: 100;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#buttons {
+  padding: 1.5em 0em 0em 0em;
 }
 #rules {
     text-align: center;
 }
 
 #info {
-    text-align: center;
-    font-weight: 100;
+  text-align: center;
+  font-weight: 100;
+}
+
+.d_maincontainer{
+  position: relative;
+  width: 99px;
+  height: 129px;
+  margin: auto;
+}
+
+.card {
+  position: absolute;  
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.cardfront {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.cardback {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.p1_maincontainer, .p2_maincontainer{
+  position: relative;
+  width: 99px;
+  height: 129px;
+  display: inline-block;
 }
 
 .btn {
   display: inline-block;
-  border: none;
-  border-radius: .3em;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
-  color: #fff;
-  cursor: pointer;
-  font-family: sans-serif;
-  font-weight: 550;
-  line-height: 1.5;
-  letter-spacing: 1px;
-  padding: .5em 1.5em .75em;
+  border-style: solid;
+  border-width: 4px;
+  border-image-slice: 2;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-source: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='6' height='6'><path d='M0 2h2v2H0zM2 0h2v2H2zM4 2h2v2H4zM2 4h2v2H2z' fill='%23cccccc' /></svg>");
   position: relative;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+  padding: .75em 1.5em .75em;
+  position: relative;
+  font-family: 'Press Start 2P', cursive;
   vertical-align: middle;
  }
   .btn:active {
     outline: none;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
     margin-top: .25em;
-    padding-bottom: .5em; }
+    padding-bottom: .5em; 
+  }
 
-.btn--blue {
-  background-color: #3498db; }
-
-.btn--green {
-  background-color: #1abc9c; }
-
-.btn--red {
-  background-color: #e65d4f; }
-
-.btn--lg {
+/* .btn--lg {
   font-size: 1.5em; }
 
 .btn--df {
-  font-size: 1.25em; }
+  font-size: 1.25em; } */
 
 .btn--md {
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 .btn--sm {
-  font-size: 0.75em; }
+  font-size: 0.5em; }

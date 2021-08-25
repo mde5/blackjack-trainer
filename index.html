@@ -5,26 +5,64 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="trainer.js"></script>
 <link rel="stylesheet" href="styles.css"> 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">   
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
 </head>
 <body>
+
     <h2 id="title">Blackjack Basic Strategy Trainer</h2>
     <div id="main">
         <p> Dealer's Upcard: </p>
-        <p id="d_cards"> <img src='images/none.png'> </p>
+        <div class="d_maincontainer">
+            <div class="card">
+                <div class="cardfront"> <img src='images/none.png'> </div>
+                <div class="cardback" id="d_cards"> </div>
+            </div>
+        </div>
+
         <p> Your Hand: </p>
-        <p id="p_cards"> <img src='images/none.png'> <img src='images/none.png'>  </p>
+        <div class="p1_maincontainer" >
+            <div class="card">
+                <div class="cardfront"> <img src='images/none.png'> </div>
+                <div class="cardback" id="p_card0"> </div>
+            </div>
+        </div>
+        <div class="p2_maincontainer">
+            <div class="card">
+                <div class="cardfront"> <img src='images/none.png'> </div>
+                <div class="cardback" id="p_card1"> </div>
+            </div>
+        </div>
     <div id="buttons">
-        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('h')">Hit</button> 
-        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('s')">Stand</button> 
-        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('d')">Double</button>
-        <button class="btn btn--sm btn--blue" onclick="setPlayerAction('p')">Split</button> 
+        <button class="btn btn--sm" onclick="setPlayerAction('h')">Hit</button> 
+        <button class="btn btn--sm" onclick="setPlayerAction('s')">Stand</button> 
+        <button class="btn btn--sm" onclick="setPlayerAction('d')">Double</button>
+        <button class="btn btn--sm" onclick="setPlayerAction('p')">Split</button> 
     </div>
 </br>
-        <button class="btn btn--md btn--red" id="deal" onclick="dealCards()">Play</button>
+        <button class="btn btn--md" id="deal" onclick="dealCards();" >Play</button>
         <p id="result"> </p>
         
     </div>
+
+<script type="text/javascript"> $( "#deal" ).click(function() {
+    if ($(".card" ).css("transform") == 'none' ){
+        //console.log('none ' + $(".card" ).css("transform"));
+        $(".card" ).css("transform","rotateY(0.5turn)");
+        //console.log("180degs " + $(".card" ).css("transform")); 
+    } 
+    else { $(".card" ).css("transform", "rotateY(-0.5turn)");
+    //console.log("-180degs " + $(".card" ).css("transform"));
+    //console.log($(".card" ).css("transform"));
+    }
+    if ($(".card" ).css("transform") == 'matrix3d(-1, 0, 1.22465e-16, 0, 0, 1, 0, 0, -1.22465e-16, 0, -1, 0, 0, 0, 0, 1)') {
+        $(".card" ).css("transform","rotateY(0.5turn)");
+    } 
+
+ }); </script>
+
 
         <ul id="rules"> 
             <li>4-8 Decks</li>

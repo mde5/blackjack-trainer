@@ -8,6 +8,7 @@
     let cards = [2,3,4,5,6,7,8,9,10,10,10,10,11];
 
     function dealCards(){
+        setTimeout(() => {
         clearMessages();
         setPlayerHand();
         setDealer_upCard();
@@ -15,7 +16,7 @@
             setPlayerHand();
         setHandType();
         setCorrectAction();
-        displayCards();
+        displayCards(); }, 200);
     };
     
     function setPlayerHand(){
@@ -80,7 +81,7 @@
 
     function getResult(){
         if(player_action == correct_action){
-            document.getElementById("result").innerHTML = "<span style='color:gold'>Correct!</span>";
+            document.getElementById("result").innerHTML = "<span style='color:#92cc41'>Correct!</span>";
 
         }
         else
@@ -90,7 +91,8 @@
 
     function displayCards(){
         document.getElementById("d_cards").innerHTML = cardToImage(dealer_upCard);
-       document.getElementById("p_cards").innerHTML = cardToImage(hand[0]) + cardToImage(hand[1]);
+       document.getElementById("p_card0").innerHTML = cardToImage(hand[0]);
+       document.getElementById("p_card1").innerHTML = cardToImage(hand[1]);
     };
 
     function cardToImage(cardValue){
@@ -108,7 +110,7 @@
     function clearMessages(){
         document.getElementById("deal").innerHTML = "Deal";
         document.getElementById("result").innerHTML = "";
-    }
+    }   
 
 let cardImages = [ 
     "<img alt='2' src='images/2d.png'> ",
@@ -610,4 +612,3 @@ let pairHand = [
         "11" : "p"
     }
 ]
-
