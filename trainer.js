@@ -81,7 +81,7 @@
 
     function getResult(){
         if(player_action == correct_action){
-            document.getElementById("result").innerHTML = "<span style='color:#92cc41'>Correct!</span>";
+            document.getElementById("result").innerHTML = "<span style='color:#f7d51d'>Correct!</span>";
 
         }
         else
@@ -98,12 +98,17 @@
     function cardToImage(cardValue){
         if(cardValue == 10){
             rand10card = Math.floor((Math.random() * 4) + 8);
-            return cardImages[rand10card];
+            randomSuit = Math.floor((Math.random() * 4));
+            getCard = rand10card * 4 + randomSuit;
+            return cardImages[getCard];
         }
         else {
             for (var i in cards)
                 if (cardValue == cards[i])
-                    return cardImages[i];
+                    card = i;
+                    randomSuit = Math.floor((Math.random() * 4));
+                    getCard = (card * 4) + randomSuit;
+                    return cardImages[getCard];
         }
     }
 
@@ -113,19 +118,59 @@
     }   
 
 let cardImages = [ 
-    "<img alt='2' src='images/2d.png'> ",
-    "<img alt='3' src='images/3d.png'> ",
-    "<img alt='4' src='images/4d.png'> ",
-    "<img alt='5' src='images/5d.png'> ",
-    "<img alt='6' src='images/6d.png'> ",
-    "<img alt='7' src='images/7d.png'> ",
-    "<img alt='8' src='images/8d.png'> ",
-    "<img alt='9' src='images/9d.png'> ",
-    "<img alt='10' src='images/10d.png'> ",
-    "<img alt='J' src='images/Jd.png'> ",
-    "<img alt='Q' src='images/Qd.png'> ",
-    "<img alt='K' src='images/Kd.png'> ",
-    "<img alt='A' src='images/Ad.png'> "
+    "<img alt='2' src='images/_2c.png'> ",
+    "<img alt='2' src='images/_2d.png'> ",
+    "<img alt='2' src='images/_2h.png'> ",
+    "<img alt='2' src='images/_2s.png'> ",
+    "<img alt='2' src='images/_3c.png'> ",
+    "<img alt='2' src='images/_3d.png'> ",
+    "<img alt='2' src='images/_3h.png'> ",
+    "<img alt='2' src='images/_3s.png'> ",
+    "<img alt='2' src='images/_4c.png'> ",
+    "<img alt='2' src='images/_4d.png'> ",
+    "<img alt='2' src='images/_4h.png'> ",
+    "<img alt='2' src='images/_4s.png'> ",
+    "<img alt='2' src='images/_5c.png'> ",
+    "<img alt='2' src='images/_5d.png'> ",
+    "<img alt='2' src='images/_5h.png'> ",
+    "<img alt='2' src='images/_5s.png'> ",
+    "<img alt='2' src='images/_6c.png'> ",
+    "<img alt='2' src='images/_6d.png'> ",
+    "<img alt='2' src='images/_6h.png'> ",
+    "<img alt='2' src='images/_6s.png'> ",
+    "<img alt='2' src='images/_7c.png'> ",
+    "<img alt='2' src='images/_7d.png'> ",
+    "<img alt='2' src='images/_7h.png'> ",
+    "<img alt='2' src='images/_7s.png'> ",
+    "<img alt='2' src='images/_8c.png'> ",
+    "<img alt='2' src='images/_8d.png'> ",
+    "<img alt='2' src='images/_8h.png'> ",
+    "<img alt='2' src='images/_8s.png'> ",
+    "<img alt='2' src='images/_9c.png'> ",
+    "<img alt='2' src='images/_9d.png'> ",
+    "<img alt='2' src='images/_9h.png'> ",
+    "<img alt='2' src='images/_9s.png'> ",
+    "<img alt='2' src='images/_10c.png'> ",
+    "<img alt='2' src='images/_10d.png'> ",
+    "<img alt='2' src='images/_10h.png'> ",
+    "<img alt='2' src='images/_10s.png'> ",
+    "<img alt='2' src='images/_Jc.png'> ",
+    "<img alt='2' src='images/_Jd.png'> ",
+    "<img alt='2' src='images/_Jh.png'> ",
+    "<img alt='2' src='images/_Js.png'> ",
+    "<img alt='2' src='images/_Qc.png'> ",
+    "<img alt='2' src='images/_Qd.png'> ",
+    "<img alt='2' src='images/_Qh.png'> ",
+    "<img alt='2' src='images/_Qs.png'> ",
+    "<img alt='2' src='images/_Kc.png'> ",
+    "<img alt='2' src='images/_Kd.png'> ",
+    "<img alt='2' src='images/_Kh.png'> ",
+    "<img alt='2' src='images/_Ks.png'> ",
+    "<img alt='2' src='images/_Ac.png'> ",
+    "<img alt='2' src='images/_Ad.png'> ",
+    "<img alt='2' src='images/_Ah.png'> ",
+    "<img alt='2' src='images/_As.png'> "
+    
     ];
 
 let hardHand = [

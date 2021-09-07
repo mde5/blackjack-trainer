@@ -1,0 +1,116 @@
+@import "node_modules/pixel-borders/src/styles/pixel-borders.scss";
+
+html {
+    background: rgba(245,245,245,1);
+  }
+body {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+}
+  
+ul {
+    list-style-type: none;
+}
+  
+#title {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 400;
+  }
+  
+#main {
+    @include pixel-borders();
+    text-align: center;
+    margin: auto;
+    margin-top: 2.5em;
+    width: 30%;
+    padding: 1em 3em 3em 3em;
+    height: 37em;
+    width: 22em;
+    font-weight: 100;
+    font-family: 'Press Start 2P', cursive;
+    background: rgb(41,173,255);
+    color: whitesmoke;
+  }
+  
+#buttons {
+    padding: 1.5em 0em 0em 0em;
+  }
+#rules {
+      text-align: center;
+  }
+  
+#info {
+    text-align: center;
+    font-weight: 100;
+  }
+  
+.d_maincontainer{
+    position: relative;
+    width: 124px;
+    height: 172px;
+    margin: auto;
+  }
+  
+.card {
+    position: absolute;  
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+  }
+  
+.cardfront {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+.cardback {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+  }
+  
+.p1_maincontainer, .p2_maincontainer{
+    position: relative;
+    width: 124px;
+    height: 172px;
+    display: inline-block;
+  }
+
+.btn {
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1px;
+    position: relative;
+    padding: .75em 1.5em .75em;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+    vertical-align: middle;
+   }
+.btn:active {
+      outline: none;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+      margin-top: .25em;
+      padding-bottom: .5em; 
+    }
+
+.btn--md {
+    font-size: 1em;
+    border: none;
+    background-color: #92cc41;
+    color: whitesmoke; 
+  }
+  
+.btn--sm {
+    font-size: 0.5em;
+    border: none;
+    background-color: #f7d51d;  }
+
+  
