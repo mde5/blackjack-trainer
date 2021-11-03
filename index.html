@@ -46,17 +46,13 @@
         <p id="result"> </p>
         
     </div>
-
 <script type="text/javascript"> $( "#deal" ).click(function() {
     if ($(".card" ).css("transform") == 'none' ){
-        //console.log('none ' + $(".card" ).css("transform"));
-        $(".card" ).css("transform","rotateY(0.5turn)");
-        //console.log("180degs " + $(".card" ).css("transform")); 
+        $(".card" ).css("transform","rotateY(0.5turn)"); 
     } 
     else { $(".card" ).css("transform", "rotateY(-0.5turn)");
-    //console.log("-180degs " + $(".card" ).css("transform"));
-    //console.log($(".card" ).css("transform"));
     }
+    //card rotation doesn't return precisely to original position; this is necessary for subsequent rotations
     if ($(".card" ).css("transform") == 'matrix3d(-1, 0, 1.22465e-16, 0, 0, 1, 0, 0, -1.22465e-16, 0, -1, 0, 0, 0, 0, 1)') {
         $(".card" ).css("transform","rotateY(0.5turn)");
     } 
@@ -73,7 +69,7 @@
 <p id="info"> Press 'play' to deal yourself a hand, then choose the best strategy based on the dealers upcard. Press 'deal' to play again. </p>
 <script type="text/javascript" src="ads.js"></script>
 <script type="text/javascript">
-    if (document.getElementById("testadblock") == undefined)
+    if (document.getElementById("testadblock") == undefined) //if test div doesn't load, ad blockers may be interfering with the page
         document.write("<span style='color:#92002c'>Warning: Ad blockers may cause images to load incorrectly. Please disable your ad blocking software: this site is ad-free :)</span>");
     </script>
 </body>

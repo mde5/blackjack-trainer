@@ -3,16 +3,17 @@
     let handValue = 0;
     let handType = "";
     let player_action = "";
-    let correct_action = "r";
+    let correct_action = "none";
     let correct_rule = "";
     let cards = [2,3,4,5,6,7,8,9,10,10,10,10,11];
 
     function dealCards(){
-        setTimeout(() => {
+        
+        setTimeout(() => { //small delay to prevent card face changing before the rotate animation
         clearMessages();
         setPlayerHand();
         setDealer_upCard();
-        while(handValue == 21)
+        while(handValue == 21) //avoids dealing the player a natural "blackjack"
             setPlayerHand();
         setHandType();
         setCorrectAction();
@@ -44,10 +45,11 @@
     };
 
     function setHandType(){
+        //though two hands might have the same total, hands composed of pairs or Aces have different strategies
         if (hand[0] == hand[1])
-            handType = "pair";
+            handType = "pair"; //hands where both cards are identical
         else if(hand[0] == 11 || hand[1] == 11)
-            handType = "soft";
+            handType = "soft"; //hands with exactly one Ace 
         else if (hand[0] !== 0 && hand[1] !== 0)
             handType = "hard";
         else
@@ -73,8 +75,8 @@
     function findCorrectStrategy(stratarray){
         for (var i in stratarray){
             if (stratarray[i].hand == handValue){
-                correct_rule = stratarray[i].rule;
-                correct_action = stratarray[i][dealer_upCard];
+                correct_rule = stratarray[i].rule; //the "rule" is an exhaustive description of how to play a particular hand
+                correct_action = stratarray[i][dealer_upCard]; //the optimal strategy usually depends on the dealer's face-up card
             }
         }
     };
@@ -96,10 +98,11 @@
     };
 
     function cardToImage(cardValue){
-        if(cardValue == 10){
-            rand10card = Math.floor((Math.random() * 4) + 8);
+        //matches the card value to a corresponding PNG image of a random suit
+        if(cardValue == 10){ //special case; multiple cards have a value of ten (10,J,Q,K)
+            rand10card = Math.floor((Math.random() * 4) + 8); //ten-cards start at the 8th element of the card array
             randomSuit = Math.floor((Math.random() * 4));
-            getCard = rand10card * 4 + randomSuit;
+            getCard = rand10card * 4 + randomSuit; //each card has four corresponding images in the CardImages array, one for each suit
             return cardImages[getCard];
         }
         else {
@@ -122,54 +125,54 @@ let cardImages = [
     "<img alt='2' src='images/_2d.png'> ",
     "<img alt='2' src='images/_2h.png'> ",
     "<img alt='2' src='images/_2s.png'> ",
-    "<img alt='2' src='images/_3c.png'> ",
-    "<img alt='2' src='images/_3d.png'> ",
-    "<img alt='2' src='images/_3h.png'> ",
-    "<img alt='2' src='images/_3s.png'> ",
-    "<img alt='2' src='images/_4c.png'> ",
-    "<img alt='2' src='images/_4d.png'> ",
-    "<img alt='2' src='images/_4h.png'> ",
-    "<img alt='2' src='images/_4s.png'> ",
-    "<img alt='2' src='images/_5c.png'> ",
-    "<img alt='2' src='images/_5d.png'> ",
-    "<img alt='2' src='images/_5h.png'> ",
-    "<img alt='2' src='images/_5s.png'> ",
-    "<img alt='2' src='images/_6c.png'> ",
-    "<img alt='2' src='images/_6d.png'> ",
-    "<img alt='2' src='images/_6h.png'> ",
-    "<img alt='2' src='images/_6s.png'> ",
-    "<img alt='2' src='images/_7c.png'> ",
-    "<img alt='2' src='images/_7d.png'> ",
-    "<img alt='2' src='images/_7h.png'> ",
-    "<img alt='2' src='images/_7s.png'> ",
-    "<img alt='2' src='images/_8c.png'> ",
-    "<img alt='2' src='images/_8d.png'> ",
-    "<img alt='2' src='images/_8h.png'> ",
-    "<img alt='2' src='images/_8s.png'> ",
-    "<img alt='2' src='images/_9c.png'> ",
-    "<img alt='2' src='images/_9d.png'> ",
-    "<img alt='2' src='images/_9h.png'> ",
-    "<img alt='2' src='images/_9s.png'> ",
-    "<img alt='2' src='images/_10c.png'> ",
-    "<img alt='2' src='images/_10d.png'> ",
-    "<img alt='2' src='images/_10h.png'> ",
-    "<img alt='2' src='images/_10s.png'> ",
-    "<img alt='2' src='images/_Jc.png'> ",
-    "<img alt='2' src='images/_Jd.png'> ",
-    "<img alt='2' src='images/_Jh.png'> ",
-    "<img alt='2' src='images/_Js.png'> ",
-    "<img alt='2' src='images/_Qc.png'> ",
-    "<img alt='2' src='images/_Qd.png'> ",
-    "<img alt='2' src='images/_Qh.png'> ",
-    "<img alt='2' src='images/_Qs.png'> ",
-    "<img alt='2' src='images/_Kc.png'> ",
-    "<img alt='2' src='images/_Kd.png'> ",
-    "<img alt='2' src='images/_Kh.png'> ",
-    "<img alt='2' src='images/_Ks.png'> ",
-    "<img alt='2' src='images/_Ac.png'> ",
-    "<img alt='2' src='images/_Ad.png'> ",
-    "<img alt='2' src='images/_Ah.png'> ",
-    "<img alt='2' src='images/_As.png'> "
+    "<img alt='3' src='images/_3c.png'> ",
+    "<img alt='3' src='images/_3d.png'> ",
+    "<img alt='3' src='images/_3h.png'> ",
+    "<img alt='3' src='images/_3s.png'> ",
+    "<img alt='4' src='images/_4c.png'> ",
+    "<img alt='4' src='images/_4d.png'> ",
+    "<img alt='4' src='images/_4h.png'> ",
+    "<img alt='4' src='images/_4s.png'> ",
+    "<img alt='5' src='images/_5c.png'> ",
+    "<img alt='5' src='images/_5d.png'> ",
+    "<img alt='5' src='images/_5h.png'> ",
+    "<img alt='5' src='images/_5s.png'> ",
+    "<img alt='6' src='images/_6c.png'> ",
+    "<img alt='6' src='images/_6d.png'> ",
+    "<img alt='6' src='images/_6h.png'> ",
+    "<img alt='6' src='images/_6s.png'> ",
+    "<img alt='7' src='images/_7c.png'> ",
+    "<img alt='7' src='images/_7d.png'> ",
+    "<img alt='7' src='images/_7h.png'> ",
+    "<img alt='7' src='images/_7s.png'> ",
+    "<img alt='8' src='images/_8c.png'> ",
+    "<img alt='8' src='images/_8d.png'> ",
+    "<img alt='8' src='images/_8h.png'> ",
+    "<img alt='8' src='images/_8s.png'> ",
+    "<img alt='9' src='images/_9c.png'> ",
+    "<img alt='9' src='images/_9d.png'> ",
+    "<img alt='9' src='images/_9h.png'> ",
+    "<img alt='9' src='images/_9s.png'> ",
+    "<img alt='10' src='images/_10c.png'> ",
+    "<img alt='10' src='images/_10d.png'> ",
+    "<img alt='10' src='images/_10h.png'> ",
+    "<img alt='10' src='images/_10s.png'> ",
+    "<img alt='J' src='images/_Jc.png'> ",
+    "<img alt='J' src='images/_Jd.png'> ",
+    "<img alt='J' src='images/_Jh.png'> ",
+    "<img alt='J' src='images/_Js.png'> ",
+    "<img alt='Q' src='images/_Qc.png'> ",
+    "<img alt='Q' src='images/_Qd.png'> ",
+    "<img alt='Q' src='images/_Qh.png'> ",
+    "<img alt='Q' src='images/_Qs.png'> ",
+    "<img alt='K' src='images/_Kc.png'> ",
+    "<img alt='K' src='images/_Kd.png'> ",
+    "<img alt='K' src='images/_Kh.png'> ",
+    "<img alt='K' src='images/_Ks.png'> ",
+    "<img alt='A' src='images/_Ac.png'> ",
+    "<img alt='A' src='images/_Ad.png'> ",
+    "<img alt='A' src='images/_Ah.png'> ",
+    "<img alt='A' src='images/_As.png'> "
     
     ];
 
